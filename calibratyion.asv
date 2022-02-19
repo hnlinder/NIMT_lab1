@@ -1,0 +1,21 @@
+data = load("cal_002.lvm"); 
+%%
+%cal1 DanHendata_004
+close all
+% data = DanHendata_004(1:end);
+%plot(data)%,"r*")
+% figure
+hold on
+% plot(data,"r*")
+%78311
+%189589
+cal1 = (data(78311)-data(189589))/(146*10^(-5));
+
+
+%cal2 cal002 8.74 mm  ## cal_003 8.38mm
+cal2 = cal_002(23000:183179);
+cal3 = cal_002(183180:end);
+plot(cal2)
+plot(cal3)
+cal_const = (max(cal2) - min(cal2))/8.74e-3)
+
