@@ -16,16 +16,15 @@ end
 
 
 % uncomment to plot during execution
-% tops = tops(tops~=0);
-% bottoms = bottoms(bottoms~=0);
-x = [1:length(tops)]/10000;
+tops = tops(tops )
+x = [1:length(data)]/10000;
 figure 
 plot(x,data)
 hold on 
 plot(x,data.*tops,"r*")
 hold on 
 plot(x,data.*bottoms,"k*")
-legend("Experimental Data", "Peak (top)","Peak (bottom)")
+legend("Experimental Data", "Peak")
 grid on 
 xlabel("Time [s]")
 ylabel("Amplitude [m]")
