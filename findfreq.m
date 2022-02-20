@@ -1,4 +1,4 @@
-function [freq, topindex, bottomindex] = findfreq(data,startsec,nrsecs)
+function [freq, tops, bottoms] = findfreq(data,startsec,nrsecs)
 
 % tops and bottoms 
 average = mean(data);
