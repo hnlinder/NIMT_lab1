@@ -19,12 +19,14 @@ end
 % tops = tops(tops~=0);
 % bottoms = bottoms(bottoms~=0);
 x = [1:length(tops)]/10000;
+cal_const = 443.6601; %calibration constant, average of 3 calibrations
+
 figure 
-plot(x,data)
+plot(x,data/cal_const)
 hold on 
-plot(x,data.*tops,"r*")
+plot(x,data/cal_const.*tops,"r*")
 hold on 
-plot(x,data.*bottoms,"k*")
+plot(x,data.*bottoms/cal_const,"k*")
 legend("Experimental Data", "Peak (top)","Peak (bottom)")
 grid on 
 xlabel("Time [s]")
