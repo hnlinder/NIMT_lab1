@@ -22,10 +22,10 @@ topindices= topindices(topindices < (startsec+nrsecs)*10000);
 
 
 onlytops = data(topindices);
-% plot(topindices,onlytops)
+plot(topindices,onlytops)
 f = fit(topindices,onlytops,'exp1');
 hold on 
-% plot(topindices,f.a*exp(f.a*topindices))
+plot(topindices,f.a*exp(f.a*topindices))
 
 
 

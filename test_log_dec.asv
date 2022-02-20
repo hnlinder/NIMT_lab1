@@ -1,29 +1,18 @@
 clear
 data = load("DanHendata_002.lvm");
-data = data-mean(data);
 %%
-hold on 
+
 % close all
 % plot(data)
-startsec= 3;
+startsec= 1;
 nrsecs = 4;
 
 
 [freq,tops,bottoms] = findfreq(data,startsec,nrsecs);
 delta = log_decrement(data,tops,bottoms,startsec,nrsecs); %delta has delta.a and delta.b, for  delta(x) = a*exp(b*x)
 
-x = find(tops==1);
-delta
-%%
-close all 
-plot(data-mean(data))
-hold on 
-plot(x, delta.a*exp(delta.b*x),"r","LineWidth",3)
-grid on 
-xlabel("Time [s]")
-ylabel("Amplitude [m]")
-
-
+x = tops(tops==1);
+plot(x, delta.a*exp())
 
 % mean(delta(~isnan(delta)))
 % a = [1,2,3,0/0, 5]

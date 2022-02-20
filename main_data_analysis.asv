@@ -51,7 +51,7 @@ average_freq = mean(freq)
 avdelta = mean(arrdelta(:,2))
 damping_coefficient = avdelta/average_freq
 
-%% Just for testing purposes and making plots
+%% Just for testing purposes
 data = load("DanHendata_010.lvm");
 data = data-mean(data);
 % close all
@@ -67,7 +67,7 @@ grid on
 delta = log_decrement(data,tops,bottoms,startsec,nrsecs); %delta has delta.a and delta.b, for  delta(x) = a*exp(b*x)
 x = find(tops==1);
 plot(x/10000, delta.a*exp(delta.b*x)/cal_const-mean(data/cal_const),"r","LineWidth",3)
-legend("Experimental data",sprintf("Fit to exponetial decay curve, y = %.2f*exp((%.2e)t)",delta.a,delta.b))
+legend("Experimental data",sprintf("Fit to exponetial decay curve, y%f"))
 
 
 % plot()
