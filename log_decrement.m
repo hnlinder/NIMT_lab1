@@ -1,4 +1,4 @@
-function f = log_decrement(data, tops, bottoms, startsec, nrsecs)
+function [f, goodness] = log_decrement(data, tops, bottoms, startsec, nrsecs)
 % delta = 0;
 
 topindices = find(tops==1);
@@ -23,7 +23,7 @@ topindices= topindices(topindices < (startsec+nrsecs)*10000);
 
 onlytops = data(topindices);
 % plot(topindices,onlytops)
-f = fit(topindices,onlytops,'exp1');
+[f, goodness] = fit(topindices,onlytops,'exp1');
 hold on 
 % plot(topindices,f.a*exp(f.a*topindices))
 

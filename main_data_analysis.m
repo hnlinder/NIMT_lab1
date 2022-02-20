@@ -19,7 +19,8 @@ for i = [2,7:8]
     else
         [freq(count), tops, bottoms] = findfreq(data,startsec,nrsecs);
     end
-    delta = log_decrement(data,tops,bottoms,startsec,nrsecs);
+    [delta, goodness] = log_decrement(data,tops,bottoms,startsec,nrsecs);
+    goodness
     arrdelta(count,1) = delta.a;
     arrdelta(count,2) = delta.b;
     count = count+1;
@@ -38,7 +39,8 @@ for i = 10:15
     else
         [freq(count), tops, bottoms] = findfreq(data,startsec,nrsecs);
     end
-    delta = log_decrement(data,tops,bottoms,startsec,nrsecs);
+    [delta, goodness] = log_decrement(data,tops,bottoms,startsec,nrsecs);
+    goodness
     arrdelta(count,1) = delta.a;
     arrdelta(count,2) = delta.b;
     count = count+1;
@@ -70,7 +72,7 @@ grid on
 delta = log_decrement(data,tops,bottoms,startsec,nrsecs); %delta has delta.a and delta.b, for  delta(x) = a*exp(b*x)
 x = find(tops==1);
 plot(x/10000, delta.a*exp(delta.b*x)/cal_const-mean(data/cal_const),"r","LineWidth",3)
-legend("Experimental data",sprintf("Fit to exponetial decay curve, y = %.2f*exp((%.2e)*t)",delta.a,delta.b))
+legend("Experimental data",sprintf("Fit to exponential decay curve, y = %.2f*exp((%.2e)*t)",delta.a,delta.b))
 
 
 % plot()
