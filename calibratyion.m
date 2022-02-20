@@ -1,4 +1,4 @@
-data = load("cal_002.lvm"); 
+cal_002 = load("cal_002.lvm"); 
 data1= load("cal_001.lvm");
 %%
 %cal1 DanHendata_004
@@ -20,7 +20,7 @@ plot(data1)
 plot(78311,data1(78311),'r*')
 plot(189589,data1(189589),'r*')
 plot(cal2)
-plot(cal3)
+plot(flip(cal3))
 cal_const2 = (max(cal2) - min(cal2))/(8.74e-3)
 cal_const3 = (max(cal3) - min(cal3))/(8.38e-3)
 

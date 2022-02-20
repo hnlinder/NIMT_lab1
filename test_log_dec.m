@@ -1,5 +1,5 @@
 clear
-data = load("DanHendata_008.lvm");
+data = load("DanHendata_002.lvm");
 %%
 
 % close all
@@ -9,8 +9,9 @@ nrsecs = 4;
 
 
 [freq,tops,bottoms] = findfreq(data,startsec,nrsecs);
-delta = log_decrement(data,tops,bottoms,startsec,nrsecs);
-mean(delta(~isnan(delta)))
+delta = log_decrement(data,tops,bottoms,startsec,nrsecs); %delta has delta.a and delta.b, for  delta(x) = a*exp(b*x)
+
+% mean(delta(~isnan(delta)))
 % a = [1,2,3,0/0, 5]
 % 
 % a = a()
