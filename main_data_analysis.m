@@ -9,7 +9,7 @@ cal_const = 443.6601; %calibration constant, average of 3 calibrations
 % freq = zeros(11,1);
 count = 1;
 startsec = 1.4;
-nrsecs = 7;
+nrsecs = 6;
 for i = [2,7:8]
     data = load(sprintf("DanHendata_00%d.lvm",i));
     data = data-mean(data);
@@ -47,6 +47,9 @@ for i = 10:15
 end
 
 average_freq = mean(freq)
+stdav_freq = std(freq)
+min95 = average_freq-2*stdav_freq;
+max95 = average_freq+2*stdav_freq;
 %delta has delta.a and delta.b, for  delta(x) = a*exp(b*x)
 avdelta = mean(arrdelta(:,2))
 damping_coefficient = avdelta/average_freq
@@ -67,7 +70,7 @@ grid on
 delta = log_decrement(data,tops,bottoms,startsec,nrsecs); %delta has delta.a and delta.b, for  delta(x) = a*exp(b*x)
 x = find(tops==1);
 plot(x/10000, delta.a*exp(delta.b*x)/cal_const-mean(data/cal_const),"r","LineWidth",3)
-legend("Experimental data",sprintf("Fit to exponetial decay curve, y = %.2f*exp((%.2e)t)",delta.a,delta.b))
+legend("Experimental data",sprintf("Fit to exponetial decay curve, y = %.2f*exp((%.2e)*t)",delta.a,delta.b))
 
 
 % plot()
