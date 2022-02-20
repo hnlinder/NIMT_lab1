@@ -4,8 +4,8 @@ function delta = log_decrement(data, tops, bottoms, startsec, nrsecs)
 topindices = find(tops==1);
 bottomindices = find(tops==1);
 imax = 100;
-jmax = 10000;
-delta = zeros(jmax - imax);
+jmax = 1500;
+% delta = zeros(jmax - imax);
 count  = 1;
 for i = 1:imax
 %     i = 1;

@@ -1,6 +1,10 @@
+%main script, gets frequency and maybe logarithmic decrement (that one is weird though)
+% for all data sets that aren't nonsensical
+
+
 close all 
 clear
-cal_const = 443.6601;
+cal_const = 443.6601; %calibration constant, average of 3 calibrations
 
 % freq = zeros(11,1);
 count = 1;
@@ -41,7 +45,7 @@ end
 average_freq = mean(freq)
 avdelta
 
-%% 
+%% Just for testing purposes
 data = load("DanHendata_009.lvm");
 x = [1:length(data)]/10000;
 close all
