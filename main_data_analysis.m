@@ -19,8 +19,8 @@ for i = [2,7:8]
     else
         [freq(count), tops, bottoms] = findfreq(data,startsec,nrsecs);
     end
-    [delta, goodness] = log_decrement(data,tops,bottoms,startsec,nrsecs);
-    goodness
+    [delta] = log_decrement(data,tops,bottoms,startsec,nrsecs)
+%     goodness
     arrdelta(count,1) = delta.a;
     arrdelta(count,2) = delta.b;
     count = count+1;
@@ -39,8 +39,9 @@ for i = 10:15
     else
         [freq(count), tops, bottoms] = findfreq(data,startsec,nrsecs);
     end
-    [delta, goodness] = log_decrement(data,tops,bottoms,startsec,nrsecs);
-    goodness
+    [delta] = log_decrement(data,tops,bottoms,startsec,nrsecs)
+%     goodness
+
     arrdelta(count,1) = delta.a;
     arrdelta(count,2) = delta.b;
     count = count+1;
